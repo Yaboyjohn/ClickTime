@@ -1,3 +1,81 @@
+<html>
+ <head>
+   <link rel="stylesheet" type ="text/css" href ="style.css"></link>
+   <script type="text/javascript" src="script.js"></script>
+   <script async defer
+        src=
+        "https://maps.googleapis.com/maps/api/js?key=AIzaSyBmCWMVKVJvNyUrCwP6yIwLApM9qFVpu2c&libraries=drawing,geometry,places&v=3&callback=initMap">
+    </script>
+ </head>
+ <style>
+ body {
+   margin: 0;
+   padding: 0;
+ }
+
+ #map {
+   height: 100%;
+   margin-right: 400px;
+ }
+
+ #start-lat {
+   display: none;
+ }
+
+ #start-long {
+   display: none;
+ }
+
+ #floating-panel {
+   font-family: Arial;
+   position: absolute;
+   left: 50%;
+   top: 10px;
+   z-index: 10;
+   background-color: white;
+   width: 250px;
+   height: 30px;
+   text-align: center;
+   border: solid 1px black;
+   border-radius: 2px;
+ }
+
+ #right-panel {
+   line-height: 30px;
+   padding-left: 10px;
+   height: 100%;
+   float: right;
+   width: 390px;
+   overflow: auto;
+ }
+ #right-panel select, #right-panel input {
+   font-size: 15px;
+ }
+
+ #right-panel select {
+   width: 100%;
+ }
+
+ #right-panel i {
+   font-size: 12px;
+ }
+</style>
+<body>
+   <div id="floating-panel">
+      <strong>Travel Method:</strong>
+      <select id="transportation">
+        <option value="TRANSIT">Transit</option>
+        <option value="WALKING">Walking</option>
+        <option value="BICYCLING">Biking</option>
+      </select>
+   </div>
+   <div id="right-panel"></div>
+   <div id="map"></div>
+   <p id="start-lat">lat</p>
+   <p id="start-long">long</p>
+</body>
+</html>
+<script>
 function initMap() {
   //setup the Google Maps API services
   var directionsDisplay = new google.maps.DirectionsRenderer;
@@ -65,3 +143,4 @@ function handleLocationError(browserHasGeolocation, pos) {
                         'Error: The Geolocation service failed.' :
                         'Error: Your browser doesn\'t support geolocation.');
 }
+</script>
