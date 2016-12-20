@@ -24,7 +24,7 @@ function initMap() {
       //call the directions function
       calculateAndDisplayRoute(directionsService, directionsDisplay, map);
       var onChangeHandler = function() {
-          calculateAndDisplayRoute(directionsService, directionsDisplay);
+          calculateAndDisplayRoute(directionsService, directionsDisplay, map);
         };
         document.getElementById('transportation').addEventListener('change', onChangeHandler);
     }, function() {
